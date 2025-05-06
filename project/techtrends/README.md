@@ -1,4 +1,4 @@
-# TechTreds Web Application
+# TechTreds Web Application project
 
 This is a Flask application that lists the latest articles within the cloud-native ecosystem.
 
