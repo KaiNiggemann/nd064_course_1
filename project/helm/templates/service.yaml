@@ -8,8 +8,8 @@ metadata:
 spec:
   ports:
   - port: {{ .Values.service.port }} 
-    protocol: TCP
-    targetPort: {{ .Values.service.port }}
+    protocol: {{ .Values.service.protocol }} 
+    targetPort: {{ .Values.service.targetPort }}
   selector:
     app: techtrends
   type: {{ .Values.service.type }} 
