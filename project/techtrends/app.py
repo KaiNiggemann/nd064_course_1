@@ -41,11 +41,11 @@ def healthcheck():
 def metrics():
     connection = get_db_connection()
     post_count = connection.execute('SELECT count(*) FROM posts').fetchone()
-    print("debug:" + post_count)
-    print("debug0:" + post_count[0])
+    print("debug:" + str(post_count))
+    print("debug0:" + str(post_count[0]))
     connection.close()
     global db_connection_count
-    metrics_data={"db_connection_count": db_connection_count, "post_count": post_count[0]}
+    metrics_data={"db_connection_count": db_connection_count, "post_count": str(post_count[0])}
 
     response = app.response_class(
             response=json.dumps(metrics_data),
