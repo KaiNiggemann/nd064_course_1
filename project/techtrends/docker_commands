@@ -13,27 +13,31 @@ docker logs 689007f2498df5c9a45114bc53abffa0a0758527078a08038ee66ee82bf81d07
 ## Logs from the container running the TechTrends application
 # TODO: paste logs from the Docker container 
  * Serving Flask app 'app' (lazy loading)
- * Environment: production
+ * Environment: development
+ * Debug mode: on
+2025-05-06 14:16:36,757 WARNING -  * Running on all addresses.
    WARNING: This is a development server. Do not use it in a production deployment.
-   Use a production WSGI server instead.
- * Debug mode: off
-WARNING:werkzeug: * Running on all addresses.
-   WARNING: This is a development server. Do not use it in a production deployment.
-INFO:werkzeug: * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
-INFO:werkzeug:10.0.0.4 - - [06/May/2025 09:28:48] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:10.0.0.4 - - [06/May/2025 09:28:48] "GET /static/css/main.css HTTP/1.1" 200 -
-INFO:werkzeug:10.0.0.4 - - [06/May/2025 09:28:48] "GET /favicon.ico HTTP/1.1" 404 -
-INFO:app:Article "2020 CNCF Annual Report" retrieved!
-INFO:werkzeug:10.0.0.4 - - [06/May/2025 09:28:55] "GET /1 HTTP/1.1" 200 -
-INFO:werkzeug:10.0.0.4 - - [06/May/2025 09:28:55] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug:10.0.0.4 - - [06/May/2025 09:28:57] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:10.0.0.4 - - [06/May/2025 09:28:57] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug:10.0.0.4 - - [06/May/2025 09:34:20] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:10.0.0.4 - - [06/May/2025 09:34:20] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app:Article "2020 CNCF Annual Report" retrieved!
-INFO:werkzeug:10.0.0.4 - - [06/May/2025 09:34:23] "GET /1 HTTP/1.1" 200 -
-INFO:werkzeug:10.0.0.4 - - [06/May/2025 09:34:23] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:werkzeug:10.0.0.4 - - [06/May/2025 09:34:25] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:10.0.0.4 - - [06/May/2025 09:34:25] "GET /static/css/main.css HTTP/1.1" 304 -
+2025-05-06 14:16:36,757 INFO -  * Running on http://10.0.0.4:3111/ (Press CTRL+C to quit)
+2025-05-06 14:16:36,758 INFO -  * Restarting with stat
+2025-05-06 14:16:37,001 WARNING -  * Debugger is active!
+2025-05-06 14:16:37,001 INFO -  * Debugger PIN: 371-483-148
+2025-05-06 14:16:42,982 INFO - 10.0.0.4 - - [06/May/2025 14:16:42] "GET / HTTP/1.1" 200 -
+2025-05-06 14:16:42,995 INFO - 10.0.0.4 - - [06/May/2025 14:16:42] "GET /static/css/main.css HTTP/1.1" 304 -
+2025-05-06 14:16:45,112 INFO - Article "2020 CNCF Annual Report" retrieved!
+2025-05-06 14:16:45,115 INFO - 10.0.0.4 - - [06/May/2025 14:16:45] "GET /1 HTTP/1.1" 200 -
+2025-05-06 14:16:45,143 INFO - 10.0.0.4 - - [06/May/2025 14:16:45] "GET /static/css/main.css HTTP/1.1" 304 -
+2025-05-06 14:16:49,861 ERROR - Article not existing
+2025-05-06 14:16:49,863 INFO - 10.0.0.4 - - [06/May/2025 14:16:49] "GET /1111 HTTP/1.1" 404 -
+2025-05-06 14:16:49,907 INFO - 10.0.0.4 - - [06/May/2025 14:16:49] "GET /static/css/main.css HTTP/1.1" 304 -
+2025-05-06 14:16:52,112 INFO - About page shown
+2025-05-06 14:16:52,115 INFO - 10.0.0.4 - - [06/May/2025 14:16:52] "GET /about HTTP/1.1" 200 -
+2025-05-06 14:16:52,146 INFO - 10.0.0.4 - - [06/May/2025 14:16:52] "GET /static/css/main.css HTTP/1.1" 304 -
+2025-05-06 14:16:53,545 INFO - 10.0.0.4 - - [06/May/2025 14:16:53] "GET /create HTTP/1.1" 200 -
+2025-05-06 14:16:53,570 INFO - 10.0.0.4 - - [06/May/2025 14:16:53] "GET /static/css/main.css HTTP/1.1" 304 -
+2025-05-06 14:17:00,479 INFO - Article "Hi" created!
+2025-05-06 14:17:00,479 INFO - 10.0.0.4 - - [06/May/2025 14:17:00] "POST /create HTTP/1.1" 302 -
+2025-05-06 14:17:00,484 INFO - 10.0.0.4 - - [06/May/2025 14:17:00] "GET / HTTP/1.1" 200 -
+2025-05-06 14:17:00,529 INFO - 10.0.0.4 - - [06/May/2025 14:17:00] "GET /static/css/main.css HTTP/1.1" 304 -
+
 
 
