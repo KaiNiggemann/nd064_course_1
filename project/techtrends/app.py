@@ -67,7 +67,7 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-      app.logger.info('Article not existing')
+      app.logger.error('Article not existing')
       return render_template('404.html'), 404
     else:
       app.logger.info('Article "' + post['Title'] + '" retrieved!')
