@@ -25,10 +25,12 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         name: techtrends
         livenessProbe:
-          path: {{ .Values.livenessProbe.path }}
-          port: {{ .Values.containerPort }}
+          httpGet:
+            path: {{ .Values.livenessProbe.path }}
+            port: {{ .Values.containerPort }}
         readinessProbe:
-          path: {{ .Values.readinessProbe.path }}
-          port: {{ .Values.containerPort }}
+          httpGet:
+            path: {{ .Values.readinessProbe.path }}
+            port: {{ .Values.containerPort }}
         resources: 
 {{ toYaml .Values.resources | indent 12 }}
