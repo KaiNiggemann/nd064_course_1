@@ -33,8 +33,7 @@ def healthcheck():
             status=200,
             mimetype='application/json'
     )
-    app.logger.info('Status request successfull')
-    app.logger.debug('DEBUG message')
+    app.logger.debug('Status request successfull')
     return response
 
 @app.route('/metrics')
@@ -50,7 +49,7 @@ def metrics():
             status=200,
             mimetype='application/json'
     )
-    app.logger.info('Metrics request successfull')
+    app.logger.debug('Metrics request successfull')
     return response
 
 # Define the main route of the web application 
@@ -70,7 +69,7 @@ def post(post_id):
       app.logger.info('Article not existing')
       return render_template('404.html'), 404
     else:
-      app.logger.info('Article "' + str(post[0]) + '" retrieved!')
+      app.logger.info('Article "' + post['Title'] + '" retrieved!')
       return render_template('post.html', post=post)
 
 # Define the About Us page
@@ -101,4 +100,5 @@ def create():
 
 # start the application on port 3111
 if __name__ == "__main__":
+   logging.basicConfig(level=logging.DEBUG)
    app.run(host='0.0.0.0', port='3111')
