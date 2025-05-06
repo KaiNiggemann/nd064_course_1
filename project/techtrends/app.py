@@ -5,6 +5,27 @@ from werkzeug.exceptions import abort
 
 db_connection_count = 0
 
+# Function to get a database connection.
+# This function connects to database with the name `database.db`
+def get_db_connection():
+    global db_connection_count
+    db_connection_count += 1
+    connection = sqlite3.connect('database.db')
+    connection.row_factory = sqlite3.Row
+    return connection
+
+# Function to get a post using its ID
+def get_post(post_id):
+    connection = get_db_connection()
+    post = connection.execute('SELECT * FROM posts WHERE id = ?',
+                        (post_id,)).fetchone()
+    connection.close()
+    return post
+
+# Define the Flask application
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your secret key'
+
 @app.route('/healthz')
 def healthcheck():
     response = app.response_class(
@@ -31,27 +52,6 @@ def metrics():
     )
     app.logger.info('Metrics request successfull')
     return response
-
-# Function to get a database connection.
-# This function connects to database with the name `database.db`
-def get_db_connection():
-    global db_connection_count
-    db_connection_count += 1
-    connection = sqlite3.connect('database.db')
-    connection.row_factory = sqlite3.Row
-    return connection
-
-# Function to get a post using its ID
-def get_post(post_id):
-    connection = get_db_connection()
-    post = connection.execute('SELECT * FROM posts WHERE id = ?',
-                        (post_id,)).fetchone()
-    connection.close()
-    return post
-
-# Define the Flask application
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your secret key'
 
 # Define the main route of the web application 
 @app.route('/')
