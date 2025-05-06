@@ -67,13 +67,16 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
+      app.logger.info('Article not existing')
       return render_template('404.html'), 404
     else:
+      app.logger.info('Article "' + str(post[0]) + '" retrieved!')
       return render_template('post.html', post=post)
 
 # Define the About Us page
 @app.route('/about')
 def about():
+    app.logger.info('About page shown')
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -91,7 +94,7 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-
+            app.logger.info('Article "' + title + '" created!')
             return redirect(url_for('index'))
 
     return render_template('create.html')
