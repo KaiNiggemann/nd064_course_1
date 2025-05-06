@@ -24,5 +24,11 @@ spec:
       - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         name: techtrends
+        livenessProbe:
+          path: {{ .Values.livenessProbe.path }}
+          port: {{ .Values.containerPort }}
+        readinessProbe:
+          path: {{ .Values.readinessProbe.path }}
+          port: {{ .Values.containerPort }}
         resources: 
 {{ toYaml .Values.resources | indent 12 }}
